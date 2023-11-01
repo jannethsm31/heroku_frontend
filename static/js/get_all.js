@@ -9,8 +9,6 @@ function getAll() {
         const json = JSON.parse(response);
         console.log("status_code: " + request.status);
         const tbody_contactos = document.getElementById("tbody_contactos");
-
-        // Limpia el contenido existente en tbody_contactos
         tbody_contactos.innerHTML = "";
 
         for (let i = 0; i < json.length; i++) {
