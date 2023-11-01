@@ -1,7 +1,7 @@
 function getAll() {
     var request = new XMLHttpRequest();
     //request.open('GET', "http://localhost:8000/contactos");
-    request.open('GET', 'https://heroku')
+    request.open('GET', "");
     request.send();
 
     request.onload = (e) => {
@@ -10,6 +10,7 @@ function getAll() {
         console.log("status_code: " + request.status);
         const tbody_contactos = document.getElementById("tbody_contactos");
 
+        // Limpia el contenido existente en tbody_contactos
         tbody_contactos.innerHTML = "";
 
         for (let i = 0; i < json.length; i++) {
@@ -30,5 +31,5 @@ function getAll() {
 
             tbody_contactos.appendChild(tr);
         }
-    }
+    };
 }
