@@ -3,19 +3,18 @@ from flask import render_template
 
 app = Flask(__name__)
 
-# Hola, esto es git
-
 @app.route("/")
 def index():
-    message = "Hello, World"
-    return render_template('index.html', message=message)
+    return render_template('index.html')
 
-@app.route("/buscar", methods=["GET", "POST"])
+@app.route("/buscar")
 def buscar():
     return render_template('buscar.html')
 
-app.route("/prueba", methods=["GET", "POST"])
+@app.route("/prueba", methods=["GET", "POST"])
 def prueba():
-    '''Pagina para probar DOM'''
+    """Pagina para probar DOM"""
     return render_template('prueba.html')
 
+#if __name__ == '__name__':
+#    app.run()

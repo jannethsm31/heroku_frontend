@@ -1,9 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>Buscar contacto</title>
-    </head>
-    <body>
-        <h1>Buscar contacto</h1>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos</title>
+    <script type="text/javascript" src="../static/js/get_one.js"></script>
+</head>
+
+<body>
+    <center>
+    <h1><b>Buscar Contacto</b></h1>
+    <form id="search-form">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+        <button type="button" onclick="searchContact()">Buscar</button>
+    </form>
+    <hr size="10" color="black">
+    <br>
+    <table border="1" id="table_contactos">
+        <thead id="thead_contactos">
+            <th>Email</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+        </thead>
+        <tbody id="tbody_contactos">
+            <tr>
+                <td colspan="3">Escribe un correo electrónico y haz clic en "Buscar" para encontrar un contacto.</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <a href="index.html">Regresar</a>
+</center>
+    <script>
+        function searchContact() {
+            var emailInput = document.getElementById("email");
+            var email = emailInput.value;
+            getForEmail(email);
+                // Limpiar el campo de entrada después de obtener el valor
+            emailInput.value = "";
+        }
+    </script>
+</body>
 </html>
