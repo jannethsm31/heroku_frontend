@@ -1,4 +1,4 @@
-function insertData(nombre, telefono, email) {
+function insertData(email, nombre, telefono) {
     var request = new XMLHttpRequest();
     var url = "http://localhost:8000/contactos/";
 
