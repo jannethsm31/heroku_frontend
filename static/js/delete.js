@@ -27,7 +27,7 @@ function deleteData(email){
 
     const request = new XMLHttpRequest();
     // request.open('DELETE', "http://localhost:8000/contactos/" + email, true);
-    request.open('DELETE', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos/ + email, true);
+    request.open('DELETE', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos/" + email, true);
 
     request.onload = function () {
 
