@@ -26,7 +26,7 @@ getContactById(email);
 function updateData(email, nombre, telefono) {
     var request = new XMLHttpRequest();
     // var url = "http://localhost:8000/contactos/" + email;
-    var url = "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos" + email;
+    var url = "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos/" + email;
 
 
     var data = {
