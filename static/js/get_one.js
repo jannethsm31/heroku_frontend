@@ -32,7 +32,8 @@ function getForEmail() {
 
             tbody_contactos.appendChild(tr);
         } else {
-            tbody_contactos.innerHTML = '<tr><td colspan="3">No se encontró ningún contacto con ese email.</td></tr>';
+            td_opciones.innerHTML = "<a href='/ver?email=" + contacto["email"] + "'>Ver</a> <a href='/editar?email=" + contacto["email"] + "'>Editar</a> <a href='/eliminar?email="+ contacto["email"]+"'>Borrar</a>";
+
         }
     };
 }
