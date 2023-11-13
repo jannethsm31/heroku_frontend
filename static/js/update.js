@@ -2,32 +2,26 @@ const urlParams = new URLSearchParams(window.location.search);
 const email = urlParams.get('email');
 
 function getContactById(email) {
-    const request = new XMLHttpRequest();
-    //request.open('GET', "http://localhost:8000/contactos/" + email);
-    request.open('GET', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos/" + email);
-    request.send();
+    return new Promise((resolve, reject) => {
+        const request = new XMLHttpRequest();
+        request.open('GET', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos/" + email);
+        request.send();
 
-    request.onload = (e) => {
-        const response = request.responseText;
-        const contacto = JSON.parse(response);
+        request.onload = (e) => {
+            const response = request.responseText;
+            const contacto = JSON.parse(response);
+            resolve(contacto);
+        };
 
-        const emailInput = document.getElementById("emailInput");
-        const nombreInput = document.getElementById("nombreInput");
-        const telefonoInput = document.getElementById("telefonoInput");
-
-        emailInput.value = contacto.email;
-        nombreInput.value = contacto.nombre;
-        telefonoInput.value = contacto.telefono;
-    };
+        request.onerror = (e) => {
+            reject(new Error("Error en la solicitud AJAX."));
+        };
+    });
 }
-
-getContactById(email);
 
 function updateData(email, nombre, telefono) {
     var request = new XMLHttpRequest();
-    // var url = "http://localhost:8000/contactos/" + email;
     var url = "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos/" + email;
-
 
     var data = {
         email: email,
@@ -38,12 +32,38 @@ function updateData(email, nombre, telefono) {
     request.open('PUT', url, true);
     request.setRequestHeader('Content-type','application/json; charset=utf-8');
 
-    request.onreadystatechange = function () {
-        if (request.readyState === 4 && request.status === 200) {
-            alert(request.responseText);
-            window.location.href = '/';
-        }
-    }
+    return new Promise((resolve, reject) => {
+        request.onreadystatechange = function () {
+            if (request.readyState === 4) {
+                if (request.status === 200) {
+                    resolve(request.responseText);
+                } else {
+                    reject(new Error("Error en la solicitud de actualización."));
+                }
+            }
+        };
 
-    request.send(JSON.stringify(data));
+        request.send(JSON.stringify(data));
+    });
 }
+
+getContactById(email)
+    .then((contacto) => {
+        const emailInput = document.getElementById("emailInput");
+        const nombreInput = document.getElementById("nombreInput");
+        const telefonoInput = document.getElementById("telefonoInput");
+
+        emailInput.value = contacto.email;
+        nombreInput.value = contacto.nombre;
+        telefonoInput.value = contacto.telefono;
+    })
+    .catch((error) => {
+        console.error(error.message);
+    });
+
+
+getAll();
+
+
+
+ //request.open('GET', "http://localhost:8000/contactos/" + email);
