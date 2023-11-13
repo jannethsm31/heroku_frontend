@@ -3,7 +3,7 @@ const email = urlParams.get('email');
 function getContactById(email) {
     const request = new XMLHttpRequest();
     // request.open('GET', "http://localhost:8000/contactos/" + email);
-    request.open('GET', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos" + email);
+    request.open('GET', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos/" + email);
     request.send();
 
     request.onload = (e) => {
@@ -27,7 +27,7 @@ function deleteData(email){
 
     const request = new XMLHttpRequest();
     // request.open('DELETE', "http://localhost:8000/contactos/" + email, true);
-    request.open('DELETE', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos" + email, true);
+    request.open('DELETE', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos/ + email, true);
 
     request.onload = function () {
 

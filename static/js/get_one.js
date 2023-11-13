@@ -32,7 +32,6 @@ function getForEmail() {
                 tr.appendChild(td_email);
                 tr.appendChild(td_nombre);
                 tr.appendChild(td_telefono);
-                tr.appendChild(td_opciones);
 
                 tbody_contactos.appendChild(tr);
             }
