@@ -4,7 +4,7 @@ function getContactById(email) {
 
     const request = new XMLHttpRequest();
     // request.open('GET', "http://localhost:8000/contactos/" + email);
-    request.open('GET', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos" + email);
+    request.open('GET', https: "//herokubackend-605c0ee15b4e.herokuapp.com/contactos" + email);
     request.send();
 
     request.onload = (e) => {
