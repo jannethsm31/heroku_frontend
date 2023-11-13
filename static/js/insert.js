@@ -1,6 +1,7 @@
 function insertData(email, nombre, telefono) {
     var request = new XMLHttpRequest();
-    var url = "http://localhost:8000/contactos/";
+    // var url = "http://localhost:8000/contactos/";
+    var url = "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos/";
 
     var data = {
         email: email,
@@ -15,7 +16,7 @@ function insertData(email, nombre, telefono) {
         if (request.readyState === 4 && request.status === 200) {
             alert(request.responseText);
 
-            // Redirigir a la página principal (index.html)
+
             window.location.href = 'index.html';
         }
     }

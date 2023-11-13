@@ -1,8 +1,8 @@
 function getForEmail() {
     var email = document.getElementById("email").value;
     var request = new XMLHttpRequest();
-    var url = "http://localhost:8000/contactos/" + encodeURIComponent(email);
-    //var url = "https://herokubackendsql-03fb6209ab45.herokuapp.com/contactos/" + encodeURIComponent(email);
+    // var url = "http://localhost:8000/contactos/" + encodeURIComponent(email);
+    var url = "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos" + encodeURIComponent(email);
     request.open('GET', url);
     request.send();
 
@@ -14,7 +14,7 @@ function getForEmail() {
         console.log("status_code: " + request.status);
 
         var tbody_contactos = document.getElementById("tbody_contactos");
-        tbody_contactos.innerHTML = ''; // Limpiamos el contenido previo en cualquier caso
+        tbody_contactos.innerHTML = '';
 
         if (json !== null) {
             var tr = document.createElement("tr");

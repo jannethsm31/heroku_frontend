@@ -1,19 +1,16 @@
-// Obtén el parámetro 'id' de la URL
 const urlParams = new URLSearchParams(window.location.search);
 const email = urlParams.get('email');
 
-// Función para obtener un solo registro por su ID
 function getContactById(email) {
-    // Realiza una solicitud para obtener el registro por su ID, por ejemplo:
     const request = new XMLHttpRequest();
-    request.open('GET', "http://localhost:8000/contactos/" + email);
+    //request.open('GET', "http://localhost:8000/contactos/" + email);
+    request.open('GET', "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos" + email);
     request.send();
 
     request.onload = (e) => {
         const response = request.responseText;
         const contacto = JSON.parse(response);
 
-        // Ahora puedes mostrar los datos del registro en la página "ver.html" como valores predeterminados en campos de entrada
         const emailInput = document.getElementById("emailInput");
         const nombreInput = document.getElementById("nombreInput");
         const telefonoInput = document.getElementById("telefonoInput");
@@ -24,12 +21,13 @@ function getContactById(email) {
     };
 }
 
-// Llama a la función para obtener y mostrar el registro
 getContactById(email);
 
 function updateData(email, nombre, telefono) {
     var request = new XMLHttpRequest();
-    var url = "http://localhost:8000/contactos/" + email;
+    // var url = "http://localhost:8000/contactos/" + email;
+    var url = "https://herokubackend-605c0ee15b4e.herokuapp.com/contactos" + email;
+
 
     var data = {
         email: email,
