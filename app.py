@@ -34,5 +34,5 @@ def prueba():
     """Pagina para probar DOM"""
     return render_template('prueba.html')
 
-#if __name__ == '__name__':
-#    app.run()
+if __name__ == '__main__':
+    app.run(port=8080, debug=True)
