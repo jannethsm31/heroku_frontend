@@ -17,7 +17,7 @@ function insertData(email, nombre, telefono) {
             alert(request.responseText);
 
 
-            window.location.href = 'index.html';
+            window.location.href = '/';
         }
     }
 

@@ -26,8 +26,7 @@ function getAll() {
             td_email.innerHTML = contacto["email"];
             td_nombre.innerHTML = contacto["nombre"];
             td_telefono.innerHTML = contacto["telefono"];
-            td_opciones.innerHTML = "<a href='/ver?email=" + contacto["email"] + "'>Ver</a> <a href='/editar?email=" + contacto["email"] + "'>Editar</a> <a href='/borrar?email="+ contacto["email"]+"'>Borrar</a>";
-
+            td_opciones.innerHTML = "<a href='/ver?email=" + contacto["email"] + "'>Ver</a> <a href='/editar?email=" + contacto["email"] + "'>Editar</a> <a href='/eliminar?email="+ contacto["email"]+"'>Borrar</a>";
 
             tr.appendChild(td_email);
             tr.appendChild(td_nombre);

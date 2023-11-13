@@ -33,7 +33,7 @@ function deleteData(email){
 
         if (request.readyState == 4 && request.status == 200) {
             alert("Se borro el contacto");
-            window.location.href = 'index.html';
+            window.location.href = '/';
         } else {
             alert("Ocurrió un error");
         }
